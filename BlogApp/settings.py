@@ -41,10 +41,10 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_simplejwt',
 
-    'core',
-    'core.user',
-    'core.auth',
-    'core.post'
+    'blog',
+    'blog.user',
+    'blog.auth',
+    'blog.post'
 ]
 
 MIDDLEWARE = [
@@ -130,7 +130,7 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-AUTH_USER_MODEL = 'core_user.User'
+AUTH_USER_MODEL = 'blog_user.User'
 
 REST_FRAMEWORK = {
 
