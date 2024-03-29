@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   nginx:
-    container_name: blog_web
+    container_name: blog_server
     restart: on-failure
     image: nginx:latest
     volumes:
@@ -18,21 +18,25 @@ services:
     build: .
     restart: always
     env_file: .env
+    environment:
+      - ENV=PROD
     ports:
       - "8000:8000"
     command: >
       sh -c "python manage.py migrate --no-input && gunicorn BlogApp.wsgi:application --bind 0.0.0.0:8000"
     volumes:
-     - .:/app
-     - uploads_volume:/app/uploads
+      - .:/code
+      - uploads_volume:/app/uploads
     depends_on:
-     - db
+      - db
+
   db:
     container_name: blog_db
     image: postgres:14.3-alpine
     env_file: .env
     volumes:
       - postgres_data:/var/lib/postgresql/data/
+
 volumes:
   uploads_volume:
   postgres_data:
