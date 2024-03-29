@@ -9,13 +9,26 @@ A Blog App Back-end Using: Django, Postgres, Docker, JWT
 ### Run Tests
 Simply run `pytest` in root directory of the project.
 
+### Development Environment
+You can use both non-dockerized and dockerized for your development environment
+
+`docker-compose -f docker-compose-dev up -d (service name)` or simply run all the services without specifying any.
 
 ### End-Points
 
-|   |   |                                        |
-|---|---|----------------------------------------|
-| GET  |  /api/post/post_pk/comment/ | Lists all the comments related to a post |
-|  GET |  /api/post/post_pk/comment/comment_pk/	 | Retrieves a specific comment           |
-|  POST |  /api/post/post_pk/comment/	 | Creates a comment                      |
-|PUT   | /api/post/post_pk/comment/comment_pk/	  | Modifies a comment                     |
-|  DELETE |  /api/post/post_pk/comment/comment_pk/ | Deletes a comment|
+Note: BREAD (browse, read, edit, add, delete)
+
+|       |                                                                     |
+|-------|---------------------------------------------------------------------|
+| BREAD | /api/post/post_pk/comment/<br/>/api/post/post_pk/comment/comment_pk/ |
+| BREAD | /api/post/<br/>/api/post/post_pk/                                              |
+
+&nbsp;
+
+|      |                                  |
+|------|----------------------------------|
+| POST | api/auth/login/                  |                                        |
+|   POST   | api/auth/register/               |
+|   POST   | api/auth/refresh (refresh token) |
+|   POST   | api/post/post_pk/like/           |
+|   POST   | api/post/post_pk/remove_like/    |
