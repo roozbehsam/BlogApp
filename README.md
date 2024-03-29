@@ -1,5 +1,5 @@
 # BlogApp
-A Blog App Back-end Using: Django, Postgres, Docker, Celery, GithubActions, Django-Ninja, Redis (Cache), JWT
+A Blog App Back-end Using: Django, Postgres, Docker, JWT
 
 ### Installation
 1. Make a copy of `.env.example` and rename it to `.env`
