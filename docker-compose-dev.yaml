@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+
+  api:
+    container_name: blog_api
+    build: .
+    restart: always
+    env_file: .env
+    environment:
+      - DATABASE_HOST=127.0.0.1
+      - ENV=DEV
+#    ports:
+#      - "8000:8000"
+    command: >
+      sh -c "python manage.py migrate --no-input && gunicorn BlogApp.wsgi:application --bind 0.0.0.0:8000"
+    volumes:
+      - .:/code
+      - uploads_volume:/app/uploads
+    depends_on:
+      - db
+    network_mode: host
+
+  db:
+    container_name: blog_db
+    image: postgres:14.3-alpine
+    env_file: .env
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    network_mode: host
+
+volumes:
+  uploads_volume:
+  postgres_data:
