@@ -7,12 +7,12 @@ A Blog App Back-end Using: Django, Postgres, Docker, JWT
 3. Run `docker-compose build` then `docker-compose up -d`
 
 ### Run Tests
-Simply run `pytest` in root directory of the project.
+Simply run `pytest` in the root directory of the project.
 
 ### Development Environment
 You can use both non-dockerized and dockerized for your development environment
 
-`docker-compose -f docker-compose-dev up -d (service name)` or simply run all the services without specifying any.
+`docker-compose -f docker-compose-dev.yml up -d (service name)` or just run all the services without specifying any.
 
 ### End-Points
 
@@ -23,7 +23,6 @@ Note: BREAD (browse, read, edit, add, delete)
 | BREAD | /api/post/post_pk/comment/<br/>/api/post/post_pk/comment/comment_pk/ |
 | BREAD | /api/post/<br/>/api/post/post_pk/                                              |
 
-&nbsp;
 
 |      |                                  |
 |------|----------------------------------|
